@@ -1,6 +1,7 @@
 package com.study;
 
 import com.study.bean.Person;
+import com.study.bean.Person1;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,23 @@ public class SpringbootdemoApplicationTests {
 
 	@Autowired
 	Person person;
+	@Autowired
+	Person1 person1;
 
+	/**
+	 * 测试 @ConfigurationProperties注解
+	 */
 	@Test
 	public void contextLoads() {
 		System.out.println(person);
+	}
+
+	/**
+	 * 测试 @Value注解
+	 */
+	@Test
+	public void contextLoads1() {
+		System.out.println(person1);
 	}
 
 }
