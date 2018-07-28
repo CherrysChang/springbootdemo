@@ -54,11 +54,15 @@ public class SpringbootdemoApplicationTests {
 	}
 
 	/**
-	 * 该项目中加入了 我们自己编写的Spring的配置文件 beans.xml
-	 * 测试 ioc容器 有没有 helloService这个Bean
-	 * 如果不进行配置，是不能进行自动识别。--------测试运行：b为 false
-	 * 想要Spring的配置文件生效，加载进来，需要使用 @ImportResource标注在一个配置类上
-	 * 此示例我们将 @ImportResource 标注在主配置类上 SpringbootdemoApplication。--------测试运行：b为true
+	 * 1、该项目中加入了 我们自己编写的Spring的配置文件 beans.xml
+	 * 		测试 ioc容器 有没有 helloService这个Bean
+	 * 		如果不进行配置，是不能进行自动识别。--------测试运行：b为 false
+	 * 		想要Spring的配置文件生效，加载进来，需要使用 @ImportResource标注在一个配置类上
+	 * 		此示例我们将 @ImportResource 标注在主配置类上 SpringbootdemoApplication。--------测试运行：b为true
+	 *
+	 * 2、不使用Spring xml配置文件的形式，SpringBoot推荐给容器中添加组件的方式，推荐使用全注解的方式。
+	 * 		①、自定义配置类 @Configuration ---替代---> Spring配置文件
+	 * 		②、使用 @Bean给容器中添加组件。
 	 */
 	@Test
 	public void testHelloService(){
