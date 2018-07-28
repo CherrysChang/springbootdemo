@@ -1,6 +1,7 @@
 package com.study.bean;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
@@ -11,30 +12,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 将配置文件中配置的每一个属性的值，映射到这个组件中
- * @ConfigurationProperties：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行绑定；
- *      prefix = "person"：配置文件中哪个下面的所有属性进行一一映射
- *
- * 只有这个组件是容器中的组件（比如该类上使用的@Component注解，将其注册为bean），才能使用容器提供的 @ConfigurationProperties功能；
- *
- * 注意：
- *  - @ConfigurationProperties 和 @Value注解的区别
- *  - @ConfigurationProperties 默认是从 全局配置文件（application.properties、application.yml）中获取值
- * Created by Qian on 2018/7/12 0012.
+ * @PropertySource 加载指定的配置文件（只能用于properties文件）
+ * 如果全局配置文件 application.properties 或 application.yml中有跟指定的文件一样的属性，则全局配置文件中的属性会覆盖指定配置文件的。
+ * Created by Qian on 2018/7/28 0028.
  */
+@PropertySource(value = {"classpath:person.properties"})
 @Component
 @ConfigurationProperties(prefix = "person")
-//③、支持JSR303校验。JSR303校验的使用：首先需要加上@Validated注解，其次再在对应属性上加上对应校验注解@NotNull、@Min(value)、@Past、@Pattern(regex=,flag=)等
 @Validated
-public class Person {
-    @NotNull //JSR303校验注解@NotNull：非空
-    private String lastName;//①、松散语法绑定：配置文件对应属性可以写成lastName、last_name、last-name
-    private Integer age;//②、配置文件中如果是SpEL的写法，如age=#{10*2}，则会映射失败
+public class Person2 {
+    @NotNull
+    private String lastName;
+    private Integer age;
     private Boolean boss;
-    @Past//JSR303校验注解@Past：必须是一个过去的时间
+    @Past
     private Date birth;
 
-    private Map<String,Object> maps;//支持复杂类型封装
+    private Map<String,Object> maps;
     private List<Object> lists;
     private Dog dog;
 

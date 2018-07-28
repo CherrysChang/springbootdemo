@@ -1,15 +1,15 @@
 server:
   port: 8082
 
-person:
-  lastName: hello #lastName和 last-name写法都可以
-  age: 18
-  boss: false
-  birth: 2018/7/12
-  maps: {K1: v1,k2: 12}
-  lists:
-    - lisi
-    - zhaoliu
-  dog:
-    name: 小狗
-    age: 12
+#person:
+#  lastName: hello #lastName和 last-name写法都可以
+#  age: 18
+#  boss: false
+#  birth: 2018/7/12
+#  maps: {K1: v1,k2: 12}
+#  lists:
+#    - lisi
+#    - zhaoliu
+#  dog:
+#    name: 小狗
+#    age: 12
