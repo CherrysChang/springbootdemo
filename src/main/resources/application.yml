@@ -1,5 +1,8 @@
 server:
   port: 8082
+spring:
+  profiles:
+    active: dev #激活指定profile。指定当前环境要使用的配置。
 
 #person:
 #  lastName: hello #lastName和 last-name写法都可以
@@ -13,3 +16,18 @@ server:
 #  dog:
 #    name: 小狗
 #    age: 12
+
+#多文档块
+---
+#文档 Document2
+server:
+  port: 8084
+spring:
+  profiles: dev #代表开发环境配置
+
+---
+#文档 Document3
+server:
+  port: 8085
+spring:
+  profiles: prod #代表生产环境配置
