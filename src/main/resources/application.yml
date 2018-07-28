@@ -17,7 +17,7 @@ spring:
 #    name: 小狗
 #    age: 12
 
-#多文档块
+#多文档块。三个短横线分割多个profile区（文档块）
 ---
 #文档 Document2
 server:
