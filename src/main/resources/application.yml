@@ -1,8 +1,8 @@
 server:
   port: 8082
-spring:
-  profiles:
-    active: dev #激活指定profile。指定当前环境要使用的配置。
+#spring:
+#  profiles:
+#    active: dev #激活指定profile。指定当前环境要使用的配置。
 
 #person:
 #  lastName: hello #lastName和 last-name写法都可以
